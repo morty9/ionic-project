@@ -3,13 +3,14 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs/observable/throw';
 import { catchError } from 'rxjs/operators';
-import { Launch, Core } from '../../app/Models/Launch';
+import { Launch } from '../../app/Models/Launch';
 import { CompanyInfo } from '../../app/Models/CompanyInfo';
 import { Rocket } from '../../app/Models/Rocket';
 import { Capsule } from '../../app/Models/Capsule';
 import { CapsuleDetails } from '../../app/Models/CapsuleDetails';
 import { CoreDetails } from '../../app/Models/CoreDetails';
 import { Launchpad } from '../../app/Models/Launchpad';
+import { CompanyHistory } from '../../app/Models/CompanyHistory';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -33,7 +34,6 @@ export class SpacexApiProvider {
         return this.http.get<Launch[]>(endpointUrl, { params: httpParams });
       });
     }
-
     return this.http.get<Launch[]>(endpointUrl);
   }
 
@@ -95,6 +95,16 @@ export class SpacexApiProvider {
       });
     }
     return this.http.get<CoreDetails[]>(endpointUrl);
+  }
+
+  getCompanyInfo(): Observable<CompanyInfo> {
+    const endpointUrl = `${this.baseUrl}/info`;
+    return this.http.get<CompanyInfo>(endpointUrl); 
+  }
+
+  getCompanyHisroty(): Observable<CompanyHistory> {
+    const endpointUrl = `${this.baseUrl}/info`;
+    return this.http.get<CompanyHistory>(endpointUrl); 
   }
 
   private handleError(error: HttpErrorResponse) {
