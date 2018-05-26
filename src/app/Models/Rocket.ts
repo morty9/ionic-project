@@ -37,6 +37,7 @@ export interface FirstStage {
     burn_time_sec: number;
     thrust_sea_level: ThrustSeaLevel;
     thrust_vacuum: ThrustVacuum;
+    cores?: number;
 }
 
 export interface Thrust {
@@ -44,14 +45,25 @@ export interface Thrust {
     lbf: number;
 }
 
+export interface Height2 {
+    meters: number;
+    feet: number;
+}
+
+export interface Diameter2 {
+    meters: number;
+    feet: number;
+}
+
 export interface CompositeFairing {
-    height: Height;
-    diameter: Diameter;
+    height: Height2;
+    diameter: Diameter2;
 }
 
 export interface Payloads {
     option_1: string;
     composite_fairing: CompositeFairing;
+    option_2: string;
 }
 
 export interface SecondStage {
@@ -62,6 +74,16 @@ export interface SecondStage {
     payloads: Payloads;
 }
 
+export interface ThrustSeaLevel2 {
+    kN: number;
+    lbf: number;
+}
+
+export interface ThrustVacuum2 {
+    kN: number;
+    lbf: number;
+}
+
 export interface Engines {
     number: number;
     type: string;
@@ -70,14 +92,14 @@ export interface Engines {
     engine_loss_max: number;
     propellant_1: string;
     propellant_2: string;
-    thrust_sea_level: ThrustSeaLevel;
-    thrust_vacuum: ThrustVacuum;
+    thrust_sea_level: ThrustSeaLevel2;
+    thrust_vacuum: ThrustVacuum2;
     thrust_to_weight: number;
 }
 
 export interface LandingLegs {
     number: number;
-    material?: any;
+    material: string;
 }
 
 export interface Rocket {

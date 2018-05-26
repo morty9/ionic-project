@@ -3,21 +3,35 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
+import { HomePage } from '../pages/home/home';
+import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
+import { CompanyPage } from '../pages/company/company';
+import { LaunchpadListPage } from '../pages/launchpad-list/launchpad-list';
+import { LaunchpadPage } from '../pages/launchpad/launchpad';
+import { LaunchPage } from '../pages/launch/launch';
+import { CapsulePage } from '../pages/capsule/capsule';
+import { RocketListPage } from '../pages/rocket-list/rocket-list';
+import { RocketPage } from '../pages/rocket/rocket';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    LaunchListPage
+    LaunchListPage,
+    LaunchPage,
+    CapsuleListPage,
+    CapsulePage,
+    CompanyPage,
+    LaunchpadListPage,
+    LaunchpadPage,
+    RocketListPage,
+    RocketPage
   ],
   imports: [
     BrowserModule,
@@ -28,8 +42,15 @@ import { LaunchListPage } from '../pages/launch-list/launch-list';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    LaunchListPage
+    LaunchListPage,
+    LaunchPage,
+    CapsuleListPage,
+    CapsulePage,
+    CompanyPage,
+    LaunchpadListPage,
+    LaunchpadPage,
+    RocketListPage,
+    RocketPage
   ],
   providers: [
     StatusBar,
