@@ -7,12 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>launch</ion-title>
+    <ion-title *ngIf="launch">{{launch.mission_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding *ngIf="launch">
 
-<ion-content padding>
+  <ion-item>
+    <img [src]="launch.links.mission_patch" />
+  </ion-item>
+  <ion-item>
+    <h2>Détails:</h2>
+    <p text-wrap>{{launch.details}}</p>
+  </ion-item>
 
 </ion-content>

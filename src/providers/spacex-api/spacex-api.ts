@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { throwError } from 'rxjs/observable/throw';
+import { _throw } from 'rxjs/observable/throw';
 import { catchError } from 'rxjs/operators';
 import { Launch } from '../../app/Models/Launch';
 import { CompanyInfo } from '../../app/Models/CompanyInfo';
@@ -102,8 +102,8 @@ export class SpacexApiProvider {
     return this.http.get<CompanyInfo>(endpointUrl); 
   }
 
-  getCompanyHisroty(): Observable<CompanyHistory> {
-    const endpointUrl = `${this.baseUrl}/info`;
+  getCompanyHistory(): Observable<CompanyHistory> {
+    const endpointUrl = `${this.baseUrl}/info/history`;
     return this.http.get<CompanyHistory>(endpointUrl); 
   }
 
@@ -119,8 +119,7 @@ export class SpacexApiProvider {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
+    return _throw('Something bad happened; please try again later.');
   }
 
 }

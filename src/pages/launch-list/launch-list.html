@@ -6,53 +6,40 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>launch-list</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Launches</ion-title>
   </ion-navbar>
 </ion-header>
 
 
+
 <ion-content padding>
-  <!-- <ion-list>
-    <button ion-item *ngFor="let launch of launches">
-      <ion-avatar item-start>
+  <ion-list *ngFor="let launch of launches" (click)="goToDetails(launch)">
+    <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
+      <ion-thumbnail item-start>
         <img src="{{launch.links.mission_patch_small}}">
-      </ion-avatar>
-      <h2>
-        <div float-left>{{launch.mission_name}}</div>
-        <div float-right>
-          <ion-badge colors="primary">{{launch.launch_success}}</ion-badge>
-        </div>
-      </h2>
-      <br/>
-      <p>{{launch.details}}</p>
-    </button>
-  </ion-list> -->
+      </ion-thumbnail>
+      <ion-grid>
+        <ion-row>
+          <ion-col text-wrap col-7 ><h2 class="bold_element">{{launch.mission_name}}</h2></ion-col>
+          <ion-col col-5 ><h2 class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <p text-wrap>Client: {{payload.customers}}</p>
+            <p text-wrap>Site: {{launch.launch_site.site_name}}</p>
+            <p text-wrap>Rocket: {{launch.rocket.rocket_name}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-badge class="badge">{{payload.orbit}}</ion-badge>
+          <ion-badge class="badge">{{payload.payload_type}}</ion-badge>
+          <ion-badge class="badge" *ngIf="payload.reused == true">Reused</ion-badge>
+        </ion-row>
+    </ion-grid>
+    </ion-item>
+  </ion-list>
 
-  <ion-card  *ngFor="let launch of launches">
-      <ion-card-header>
-        {{launch.mission_name}}
-      </ion-card-header>
-      <ion-card-content>
-          <ion-grid>
-              <ion-row>
-                <ion-col col-3>
-                  <ion-avatar item-start>
-                      <img src="{{launch.links.mission_patch_small}}">
-                  </ion-avatar>
-                </ion-col>
-                <ion-col col-7>
-                    <p>{{launch.details}}</p>
-                    <p>{{launch.launch_date_local}}</p>
-                </ion-col>
-                <ion-col col-2>
-
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col col-6>This column will take 6 columns</ion-col>
-              </ion-row>
-            </ion-grid>
-      </ion-card-content>
-    </ion-card>
-  
 </ion-content>

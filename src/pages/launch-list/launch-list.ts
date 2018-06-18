@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { Launch } from '../../app/Models/Launch';
+import { LaunchPage } from '../launch/launch';
 
 /**
  * Generated class for the LaunchListPage page.
@@ -24,11 +25,16 @@ export class LaunchListPage {
       order: 'desc'
     }).subscribe(data => {
       this.launches = data;
+      console.log(this.launches);
     });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchListPage');
+  }
+
+  goToDetails(launch: Launch) {
+    this.navCtrl.push(LaunchPage, launch);
   }
 
 }
