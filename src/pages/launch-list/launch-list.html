@@ -13,12 +13,10 @@
   </ion-navbar>
 </ion-header>
 
-
-
 <ion-content padding>
   <ion-list *ngFor="let launch of launches" (click)="goToDetails(launch)">
     <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
-      <ion-thumbnail item-start>
+      <ion-thumbnail item-start *ngIf="launch.links.mission_patch_small != null">
         <img src="{{launch.links.mission_patch_small}}">
       </ion-thumbnail>
       <ion-grid>
@@ -41,5 +39,6 @@
     </ion-grid>
     </ion-item>
   </ion-list>
-
 </ion-content>
+
+

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { Launch } from '../../app/Models/Launch';
 import { LaunchPage } from '../launch/launch';
-import { LaunchpadListPage } from '../launchpad-list/launchpad-list';
+import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 
 /**
- * Generated class for the LaunchListPage page.
+ * Generated class for the LatestLaunchListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,22 +13,24 @@ import { LaunchpadListPage } from '../launchpad-list/launchpad-list';
 
 @IonicPage()
 @Component({
-  selector: 'page-launch-list',
-  templateUrl: 'launch-list.html',
+  selector: 'page-latest-launch-list',
+  templateUrl: 'latest-launch-list.html',
 })
-export class LaunchListPage {
+export class LatestLaunchListPage {
 
-  launches : Launch[];
+  launches : Launch;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spacexapi: SpacexApiProvider) {
-    this.spacexapi.getAllLaunches().subscribe(data => {
+    console.log("constructor");
+    
+    this.spacexapi.getLatestLaunches().subscribe(data => {
       this.launches = data;
       console.log(this.launches);
     });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchListPage');
+    console.log('ionViewDidLoad LatestLaunchListPage');
   }
 
   goToDetails(launch: Launch) {
@@ -37,4 +38,3 @@ export class LaunchListPage {
   }
 
 }
-

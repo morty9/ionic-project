@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { Launch } from '../../app/Models/Launch';
+import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { LaunchPage } from '../launch/launch';
-import { LaunchpadListPage } from '../launchpad-list/launchpad-list';
 
 /**
- * Generated class for the LaunchListPage page.
+ * Generated class for the UpcomingLaunchListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,15 +13,17 @@ import { LaunchpadListPage } from '../launchpad-list/launchpad-list';
 
 @IonicPage()
 @Component({
-  selector: 'page-launch-list',
-  templateUrl: 'launch-list.html',
+  selector: 'page-upcoming-launch-list',
+  templateUrl: 'upcoming-launch-list.html',
 })
-export class LaunchListPage {
+export class UpcomingLaunchListPage {
 
   launches : Launch[];
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spacexapi: SpacexApiProvider) {
-    this.spacexapi.getAllLaunches().subscribe(data => {
+    console.log("constructor");
+    
+    this.spacexapi.getUpcomingLaunches().subscribe(data => {
       this.launches = data;
       console.log(this.launches);
     });
@@ -37,4 +38,3 @@ export class LaunchListPage {
   }
 
 }
-

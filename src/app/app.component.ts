@@ -9,6 +9,7 @@ import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { LaunchpadListPage } from '../pages/launchpad-list/launchpad-list';
 import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
 import { CompanyPage } from '../pages/company/company';
+import { MenuLaunchesPage } from '../pages/menu-launches/menu-launches';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +17,7 @@ import { CompanyPage } from '../pages/company/company';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LaunchListPage;
+  rootPage: any = MenuLaunchesPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,7 +27,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Launches', component: LaunchListPage },
+      //{ title: 'Launches', component: LaunchListPage },
+      { title: 'Launches', component: MenuLaunchesPage },
       { title: 'Rockets', component: RocketListPage },
       { title: 'Launchpads', component: LaunchpadListPage },
       { title: 'Capsules' , component: CapsuleListPage },

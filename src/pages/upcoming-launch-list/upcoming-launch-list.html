@@ -1,0 +1,45 @@
+<!--
+  Generated template for the LaunchListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Launches</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list *ngFor="let launch of launches" (click)="goToDetails(launch)">
+      <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
+        <ion-thumbnail item-start *ngIf="launch.links.mission_patch_small != null">
+          <img src="{{launch.links.mission_patch_small}}">
+        </ion-thumbnail>
+        <ion-grid>
+          <ion-row>
+            <ion-col text-wrap col-7 ><h2 class="bold_element">{{launch.mission_name}}</h2></ion-col>
+            <ion-col col-5 ><h2 class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <p text-wrap>Client: {{payload.customers}}</p>
+              <p text-wrap>Site: {{launch.launch_site.site_name}}</p>
+              <p text-wrap>Rocket: {{launch.rocket.rocket_name}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-badge class="badge">{{payload.orbit}}</ion-badge>
+            <ion-badge class="badge">{{payload.payload_type}}</ion-badge>
+            <ion-badge class="badge" *ngIf="payload.reused == true">Reused</ion-badge>
+          </ion-row>
+      </ion-grid>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+  
+  

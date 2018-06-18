@@ -7,15 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title *ngIf="launch">{{launch.mission_name}}</ion-title>
+    <!--<ion-title *ngIf="launch">{{launch.mission_name}}</ion-title>-->
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding *ngIf="launch">
-
-  <ion-item>
-    <img [src]="launch.links.mission_patch" />
+  <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
+      <ion-grid>
+      <ion-row>
+        <ion-col class="img_container">
+          <img [src]="launch.links.mission_patch" />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-wrap col-7>
+          <h2 class="bold_element">{{launch.mission_name}}</h2>
+        </ion-col>
+        <ion-col col-5>
+          <h2 class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p text-wrap>Client: {{payload.customers}}</p>
+          <p text-wrap>Site: {{launch.launch_site.site_name}}</p>
+          <p text-wrap>Rocket: {{launch.rocket.rocket_name}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-badge class="badge">{{payload.orbit}}</ion-badge>
+        <ion-badge class="badge">{{payload.payload_type}}</ion-badge>
+        <ion-badge class="badge" *ngIf="payload.reused == true">Reused</ion-badge>
+      </ion-row>
+    </ion-grid>
   </ion-item>
   <ion-item>
     <h2>Détails:</h2>

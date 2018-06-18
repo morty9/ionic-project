@@ -18,12 +18,17 @@ import { LaunchPage } from '../pages/launch/launch';
 import { CapsulePage } from '../pages/capsule/capsule';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { RocketPage } from '../pages/rocket/rocket';
-
+import { UpcomingLaunchListPage } from '../pages/upcoming-launch-list/upcoming-launch-list';
+import { LatestLaunchListPage } from '../pages/latest-launch-list/latest-launch-list';
+import { MenuLaunchesPage } from '../pages/menu-launches/menu-launches';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LaunchListPage,
+    UpcomingLaunchListPage,
+    LatestLaunchListPage,
+    MenuLaunchesPage,
     LaunchPage,
     CapsuleListPage,
     CapsulePage,
@@ -43,6 +48,9 @@ import { RocketPage } from '../pages/rocket/rocket';
     MyApp,
     HomePage,
     LaunchListPage,
+    UpcomingLaunchListPage,
+    LatestLaunchListPage,
+    MenuLaunchesPage,
     LaunchPage,
     CapsuleListPage,
     CapsulePage,

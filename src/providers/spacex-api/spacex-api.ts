@@ -26,15 +26,65 @@ export class SpacexApiProvider {
   constructor(private http: HttpClient) { }
 
   getAllLaunches(params?: any): Observable<Launch[]> {
+    const endpointUrl = `${this.baseUrl}/launches/all`;
+    if (params) {
+      let httpParams = new HttpParams();
+      Object.keys(params).forEach(key => {
+        console.log("Search param");
+        httpParams = httpParams.append(key, params[key]);
+        return this.http.get<Launch[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
+      });
+    }
+    return this.http.get<Launch[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getLaunchesByParams(params?: any): Observable<Launch[]> {
     const endpointUrl = `${this.baseUrl}/launches`;
     if (params) {
       let httpParams = new HttpParams();
       Object.keys(params).forEach(key => {
+        console.log("Search param");
         httpParams = httpParams.append(key, params[key]);
-        return this.http.get<Launch[]>(endpointUrl, { params: httpParams });
+        return this.http.get<Launch[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
       });
     }
-    return this.http.get<Launch[]>(endpointUrl);
+    return this.http.get<Launch[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getLatestLaunches(): Observable<Launch> {
+      const endpointUrl = `${this.baseUrl}/launches/latest`;
+      return this.http.get<Launch>(endpointUrl)
+        .pipe(
+          catchError(this.handleError)
+        );
+  }
+
+  getNextLaunches(): Observable<Launch[]> {
+    const endpointUrl = `${this.baseUrl}/launches/next`;
+      return this.http.get<Launch[]>(endpointUrl)
+        .pipe(
+          catchError(this.handleError)
+        );
+  }
+
+  getUpcomingLaunches(): Observable<Launch[]> {
+    const endpointUrl = `${this.baseUrl}/launches/upcoming`;
+      return this.http.get<Launch[]>(endpointUrl) 
+        .pipe(
+          catchError(this.handleError)
+        );
   }
 
   getAllRockets(params?: string): Observable<Rocket[]> {
@@ -43,10 +93,16 @@ export class SpacexApiProvider {
       let httpParams = new HttpParams();
       Object.keys(params).forEach(key => {
         httpParams = httpParams.append(key, params[key]);
-        return this.http.get<Rocket[]>(endpointUrl, { params: httpParams });
+        return this.http.get<Rocket[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
       });
     }
-    return this.http.get<Rocket[]>(endpointUrl);
+    return this.http.get<Rocket[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getAllCapsules(params?: string): Observable<Capsule[]> {
@@ -55,10 +111,16 @@ export class SpacexApiProvider {
       let httpParams = new HttpParams();
       Object.keys(params).forEach(key => {
         httpParams = httpParams.append(key, params[key]);
-        return this.http.get<Capsule[]>(endpointUrl, { params: httpParams });
+        return this.http.get<Capsule[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
       });
     }
-    return this.http.get<Capsule[]>(endpointUrl);
+    return this.http.get<Capsule[]>(endpointUrl) 
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getAllLaunchpads(params?: string): Observable<Launchpad[]> {
@@ -67,10 +129,16 @@ export class SpacexApiProvider {
       let httpParams = new HttpParams();
       Object.keys(params).forEach(key => {
         httpParams = httpParams.append(key, params[key]);
-        return this.http.get<Launchpad[]>(endpointUrl, { params: httpParams });
+        return this.http.get<Launchpad[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
       });
     }
-    return this.http.get<Launchpad[]>(endpointUrl);
+    return this.http.get<Launchpad[]>(endpointUrl) 
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getAllCapsuleDetails(params?: string): Observable<CapsuleDetails[]> {
@@ -79,10 +147,16 @@ export class SpacexApiProvider {
       let httpParams = new HttpParams();
       Object.keys(params).forEach(key => {
         httpParams = httpParams.append(key, params[key]);
-        return this.http.get<CapsuleDetails[]>(endpointUrl, { params: httpParams });
+        return this.http.get<CapsuleDetails[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
       });
     }
-    return this.http.get<CapsuleDetails[]>(endpointUrl);
+    return this.http.get<CapsuleDetails[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getAllCoreDetails(params?: string): Observable<CoreDetails[]> {
@@ -91,20 +165,32 @@ export class SpacexApiProvider {
       let httpParams = new HttpParams();
       Object.keys(params).forEach(key => {
         httpParams = httpParams.append(key, params[key]);
-        return this.http.get<CoreDetails[]>(endpointUrl, { params: httpParams });
+        return this.http.get<CoreDetails[]>(endpointUrl, { params: httpParams })
+          .pipe(
+            catchError(this.handleError)
+          );
       });
     }
-    return this.http.get<CoreDetails[]>(endpointUrl);
+    return this.http.get<CoreDetails[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getCompanyInfo(): Observable<CompanyInfo> {
     const endpointUrl = `${this.baseUrl}/info`;
-    return this.http.get<CompanyInfo>(endpointUrl); 
+    return this.http.get<CompanyInfo>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      ); 
   }
 
   getCompanyHistory(): Observable<CompanyHistory> {
     const endpointUrl = `${this.baseUrl}/info/history`;
-    return this.http.get<CompanyHistory>(endpointUrl); 
+    return this.http.get<CompanyHistory>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      ); 
   }
 
   private handleError(error: HttpErrorResponse) {
