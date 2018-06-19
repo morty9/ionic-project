@@ -21,6 +21,7 @@ import { RocketPage } from '../pages/rocket/rocket';
 import { UpcomingLaunchListPage } from '../pages/upcoming-launch-list/upcoming-launch-list';
 import { LatestLaunchListPage } from '../pages/latest-launch-list/latest-launch-list';
 import { MenuLaunchesPage } from '../pages/menu-launches/menu-launches';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 @NgModule({
   declarations: [
     MyApp,
@@ -64,7 +65,8 @@ import { MenuLaunchesPage } from '../pages/menu-launches/menu-launches';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SpacexApiProvider
+    SpacexApiProvider,
+    YoutubeVideoPlayer
   ]
 })
 export class AppModule {}

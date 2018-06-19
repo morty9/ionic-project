@@ -18,7 +18,7 @@ import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 export class LaunchPage {
 
   launch : Launch;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
   }
 
@@ -27,5 +27,4 @@ export class LaunchPage {
     this.launch = this.navParams.data;
     console.log(this.launch);
   }
-
 }

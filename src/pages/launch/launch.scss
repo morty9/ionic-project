@@ -2,11 +2,19 @@ page-launch {
 
     .bold_element {
         font-weight: bold;
+        float: right;
+    }
+
+    .mission_name {
+        margin-bottom: 5%;
+    }
+
+    .infos {
+        margin-bottom: 8%;
     }
 
     .badge {
         padding: 5px;
-        margin: 5px;
         background-color: #191C1F;
         color: #FFFFFF;
         border: solid 1px;
@@ -16,5 +24,17 @@ page-launch {
         margin-bottom: 5%;
     }
 
+    .icons {
+        display: flex;
+    }
 
+    .links {
+        display: flex;
+        align-items: center;
+    }
+
+    .details_item {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }

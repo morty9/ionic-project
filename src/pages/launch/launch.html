@@ -7,44 +7,84 @@
 <ion-header>
 
   <ion-navbar>
-    <!--<ion-title *ngIf="launch">{{launch.mission_name}}</ion-title>-->
+    <ion-title *ngIf="launch">Launch</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding *ngIf="launch">
   <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
-      <ion-grid>
+    <ion-grid>
       <ion-row>
-        <ion-col class="img_container">
+        <ion-col col-5 class="img_container">
           <img [src]="launch.links.mission_patch" />
         </ion-col>
-      </ion-row>
-      <ion-row>
         <ion-col text-wrap col-7>
-          <h2 class="bold_element">{{launch.mission_name}}</h2>
-        </ion-col>
-        <ion-col col-5>
+          <h1 class="bold_element mission_name">{{launch.mission_name}}</h1>
           <h2 class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2>
         </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <p text-wrap>Client: {{payload.customers}}</p>
-          <p text-wrap>Site: {{launch.launch_site.site_name}}</p>
-          <p text-wrap>Rocket: {{launch.rocket.rocket_name}}</p>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-badge class="badge">{{payload.orbit}}</ion-badge>
-        <ion-badge class="badge">{{payload.payload_type}}</ion-badge>
-        <ion-badge class="badge" *ngIf="payload.reused == true">Reused</ion-badge>
+        <ion-row>
+          <ion-col col-8>
+            <p text-wrap class="infos">Client: {{payload.customers}}</p>
+            <p text-wrap class="infos">Site: {{launch.launch_site.site_name}}</p>
+            <p text-wrap class="infos">Rocket: {{launch.rocket.rocket_name}}</p>
+          </ion-col>
+          <ion-col col-4 text-wrap>
+            <ion-badge class="badge">{{payload.orbit}}</ion-badge>
+            <ion-badge class="badge">{{payload.payload_type}}</ion-badge>
+            <ion-badge class="badge" *ngIf="payload.reused == true">Reused</ion-badge>
+          </ion-col>
+        </ion-row>
       </ion-row>
     </ion-grid>
   </ion-item>
-  <ion-item>
-    <h2>Détails:</h2>
-    <p text-wrap>{{launch.details}}</p>
+  <ion-item *ngIf="launch.details != null">
+    <ion-row>
+      <ion-col col-12>
+        <h2>Détails:</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <p text-wrap>{{launch.details}}</p>
+      </ion-col>
+    </ion-row>
   </ion-item>
-
+  <ion-item>
+    <ion-row>
+      <ion-col col-12>
+          <h2>Liens utiles:</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="icons">
+        <ion-icon name="logo-youtube" style='margin-right: auto; margin-left: auto;'></ion-icon>
+      </ion-col>
+      <ion-col col-10 class="links">
+        <h3>
+          <a href="{{ launch.links.video_link }}" target="_blank">{{ launch.mission_name }} Vidéo</a>
+        </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="icons">
+        <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+      </ion-col>
+      <ion-col col-10 class="links">
+        <h3>
+          <a href="{{ launch.links.article_link }}" target="_blank">{{ launch.mission_name }} Article</a>
+        </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="icons">
+        <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+      </ion-col>
+      <ion-col col-10 class="links">
+        <h3>
+          <a href="{{ launch.links.wikipedia }}" target="_blank">{{ launch.mission_name }} Wiki</a>
+        </h3>
+      </ion-col>
+    </ion-row>
+  </ion-item>
 </ion-content>
