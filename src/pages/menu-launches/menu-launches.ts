@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LaunchListPage } from '../launch-list/launch-list';
-import { LatestLaunchListPage } from '../latest-launch-list/latest-launch-list';
 import { UpcomingLaunchListPage } from '../upcoming-launch-list/upcoming-launch-list';
+import { LatestLaunchPage } from '../latest-launch/latest-launch';
 
 /**
  * Generated class for the MenuLaunchesPage page.
@@ -19,7 +19,7 @@ import { UpcomingLaunchListPage } from '../upcoming-launch-list/upcoming-launch-
 export class MenuLaunchesPage {
 
   allLaunches : any = LaunchListPage;
-  latestLaunches : any = LatestLaunchListPage;
+  latestLaunches : any = LatestLaunchPage;
   upcomingLaunches : any = UpcomingLaunchListPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

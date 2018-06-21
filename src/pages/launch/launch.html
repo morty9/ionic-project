@@ -16,13 +16,27 @@
   <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
     <ion-grid>
       <ion-row>
-        <ion-col col-5 class="img_container">
-          <img [src]="launch.links.mission_patch" />
-        </ion-col>
-        <ion-col text-wrap col-7>
-          <h1 class="bold_element mission_name">{{launch.mission_name}}</h1>
-          <h2 class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2>
-        </ion-col>
+        <ion-row style="width:100%">
+          <ion-col col-5 *ngIf="launch.links.mission_patch != null" class="img_container">
+            <img [src]="launch.links.mission_patch" />
+          </ion-col>
+          <ion-col col-7 *ngIf="launch.links.mission_patch != null">
+            <ion-row class="mission_name">
+              <h1 text-wrap class="bold_element">{{launch.mission_name}}</h1>
+            </ion-row>
+            <ion-row class="mission_name">
+              <h2 text-wrap class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2>
+            </ion-row>
+          </ion-col>
+          <ion-col col-12 *ngIf="launch.links.mission_patch == null">
+            <ion-row style="width: 100%;" class="mission_name">
+              <h1 text-wrap class="bold_element">{{launch.mission_name}}</h1>
+            </ion-row>
+            <ion-row style="width: 100%;" class="mission_name">
+              <h2 text-wrap class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2>
+            </ion-row>
+          </ion-col>
+        </ion-row>
         <ion-row>
           <ion-col col-8>
             <p text-wrap class="infos">Client: {{payload.customers}}</p>
@@ -39,52 +53,56 @@
     </ion-grid>
   </ion-item>
   <ion-item *ngIf="launch.details != null">
-    <ion-row>
-      <ion-col col-12>
-        <h2>Détails:</h2>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        <p text-wrap>{{launch.details}}</p>
-      </ion-col>
-    </ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <h2>Détails:</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p text-wrap>{{launch.details}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-item>
   <ion-item>
-    <ion-row>
-      <ion-col col-12>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
           <h2>Liens utiles:</h2>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="icons">
-        <ion-icon name="logo-youtube" style='margin-right: auto; margin-left: auto;'></ion-icon>
-      </ion-col>
-      <ion-col col-10 class="links">
-        <h3>
-          <a href="{{ launch.links.video_link }}" target="_blank">{{ launch.mission_name }} Vidéo</a>
-        </h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="icons">
-        <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
-      </ion-col>
-      <ion-col col-10 class="links">
-        <h3>
-          <a href="{{ launch.links.article_link }}" target="_blank">{{ launch.mission_name }} Article</a>
-        </h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="icons">
-        <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
-      </ion-col>
-      <ion-col col-10 class="links">
-        <h3>
-          <a href="{{ launch.links.wikipedia }}" target="_blank">{{ launch.mission_name }} Wiki</a>
-        </h3>
-      </ion-col>
-    </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2 class="icons">
+          <ion-icon name="logo-youtube" style='margin-right: auto; margin-left: auto;'></ion-icon>
+        </ion-col>
+        <ion-col col-10 class="links">
+          <h3>
+            <a href="{{ launch.links.video_link }}" target="_blank">{{ launch.mission_name }} Vidéo</a>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2 class="icons">
+          <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+        </ion-col>
+        <ion-col col-10 class="links">
+          <h3>
+            <a href="{{ launch.links.article_link }}" target="_blank">{{ launch.mission_name }} Article</a>
+          </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2 class="icons">
+          <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+        </ion-col>
+        <ion-col col-10 class="links">
+          <h3>
+            <a href="{{ launch.links.wikipedia }}" target="_blank">{{ launch.mission_name }} Wiki</a>
+          </h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-item>
 </ion-content>

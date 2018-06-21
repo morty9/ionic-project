@@ -15,4 +15,65 @@
 
 <ion-content padding>
 
+  <ion-list *ngFor="let rocket of rockets; let i=index" (click)="goToDetails(rocket, img[i])">
+    <ion-card>
+      <img src="{{'../../assets/imgs/' + img[i]}}"/>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1 class="icons">
+              <ion-icon name="jet" color="danger"></ion-icon>
+            </ion-col>
+            <ion-col col-11>
+              <h2 class="rocket_name">{{rocket.name}}</h2>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <p class="title">Company: {{rocket.company}}</p>
+            </ion-col>
+            <ion-col col-12>
+              <p class="title">Country: {{rocket.country}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <p class="title">Diameter:</p>
+            </ion-col>
+            <ion-col col-4>
+              <ion-badge>M: {{rocket.diameter.meters}}</ion-badge>
+            </ion-col>
+            <ion-col col-4>
+              <ion-badge>Ft: {{rocket.diameter.feet}}</ion-badge>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <p class="title">Mass:</p>
+            </ion-col>
+            <ion-col col-4>
+              <ion-badge>Kg: {{rocket.mass.kg}}</ion-badge>
+            </ion-col>
+            <ion-col col-4>
+              <ion-badge>Lb: {{rocket.mass.lb}}</ion-badge>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              <p class="title">Height:</p>
+            </ion-col>
+            <ion-col col-4>
+              <ion-badge>M: {{rocket.height.meters}}</ion-badge>
+            </ion-col>
+            <ion-col col-4>
+              <ion-badge>Ft: {{rocket.height.feet}}</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+
+    </ion-card>
+  </ion-list>
+
 </ion-content>

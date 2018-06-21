@@ -20,20 +20,23 @@ export class RocketListPage {
 
   rockets : Rocket[];
 
+  img : String[] = ["rocket1.jpg", "rocket2.jpg", "rocket3.jpg", "rocket4.jpg"];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
     this.spacexapi.getAllRockets().subscribe(data => {
       this.rockets = data;
-      console.log(this.rockets);
-      
-    })
+      console.log(this.rockets);      
+    });
+    console.log(this.img);
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RocketListPage');
   }
 
-  goToDetails(rocket : Rocket) {
-    this.navCtrl.push(RocketPage, rocket);
+  goToDetails(rocket : Rocket, img: String) {
+    this.navCtrl.push(RocketPage, {rocket: rocket, img: img});
   }
 
 }

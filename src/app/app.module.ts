@@ -19,16 +19,17 @@ import { CapsulePage } from '../pages/capsule/capsule';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { RocketPage } from '../pages/rocket/rocket';
 import { UpcomingLaunchListPage } from '../pages/upcoming-launch-list/upcoming-launch-list';
-import { LatestLaunchListPage } from '../pages/latest-launch-list/latest-launch-list';
 import { MenuLaunchesPage } from '../pages/menu-launches/menu-launches';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { LatestLaunchPage } from '../pages/latest-launch/latest-launch';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LaunchListPage,
     UpcomingLaunchListPage,
-    LatestLaunchListPage,
+    LatestLaunchPage,
     MenuLaunchesPage,
     LaunchPage,
     CapsuleListPage,
@@ -50,7 +51,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
     HomePage,
     LaunchListPage,
     UpcomingLaunchListPage,
-    LatestLaunchListPage,
+    LatestLaunchPage,
     MenuLaunchesPage,
     LaunchPage,
     CapsuleListPage,

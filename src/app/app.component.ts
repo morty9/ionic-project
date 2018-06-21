@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { LaunchListPage } from '../pages/launch-list/launch-list';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { LaunchpadListPage } from '../pages/launchpad-list/launchpad-list';
 import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
