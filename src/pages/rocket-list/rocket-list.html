@@ -17,13 +17,13 @@
 
   <ion-list *ngFor="let rocket of rockets; let i=index" (click)="goToDetails(rocket, img[i])">
     <ion-card>
-      <img src="{{'../../assets/imgs/' + img[i]}}"/>
+      <img src="{{'../../assets/imgs/' + img[i]}}" />
 
       <ion-card-content>
         <ion-grid>
           <ion-row>
             <ion-col col-1 class="icons">
-              <ion-icon name="jet" color="danger"></ion-icon>
+              <ion-icon name="rocket" color="danger"></ion-icon>
             </ion-col>
             <ion-col col-11>
               <h2 class="rocket_name">{{rocket.name}}</h2>
@@ -31,11 +31,14 @@
           </ion-row>
           <ion-row>
             <ion-col col-12>
-              <p class="title">Company: {{rocket.company}}</p>
+              <ion-row>
+                <ion-icon name="pin"></ion-icon>
+                <p class="title">{{rocket.country}}</p>
+              </ion-row>
             </ion-col>
             <ion-col col-12>
-              <p class="title">Country: {{rocket.country}}</p>
-            </ion-col>
+                <p class="title">Company: {{rocket.company}}</p>
+              </ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-4>

@@ -13,8 +13,33 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="rocket != null">
 
-  <img src="{{'../../assets/imgs/' + img}}"/>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <img src="{{'../../assets/imgs/' + img}}" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item style="padding-left: 0px;">
+          <p>Operated by :
+            <b style="color: #000000;">{{rocket.company}}</b>
+          </p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12>
+        <ion-item style="padding-left: 0px;">
+          <ion-row>
+            <p>Details :</p><br/>
+          </ion-row>
+          <ion-row>
+            <p text-wrap style="color: #000000;">{{rocket.description}}</p>
+          </ion-row>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

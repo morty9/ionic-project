@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content padding *ngIf="launch">
-  <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads">
+  <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads" style="padding-left: 0px;">
     <ion-row>
       <ion-row style="width:100%">
         <ion-col col-5 *ngIf="launch.links.mission_patch != null" class="img_container">
@@ -44,17 +44,17 @@
           <p text-wrap class="infos">Rocket: {{launch.rocket.rocket_name}}</p>
         </ion-col>
         <ion-col col-4 text-wrap>
-          <ion-badge class="badge">{{payload.orbit}}</ion-badge>
-          <ion-badge class="badge">{{payload.payload_type}}</ion-badge>
-          <ion-badge class="badge" *ngIf="payload.reused == true">Reused</ion-badge>
+          <ion-badge class="badge" color="primary">{{payload.orbit}}</ion-badge>
+          <ion-badge class="badge" color="primary">{{payload.payload_type}}</ion-badge>
+          <ion-badge class="badge" [color]="launch.launch_success ? 'secondary' : 'danger'">{{launch.launch_success ? 'Success' : 'Fail'}}</ion-badge>
         </ion-col>
       </ion-row>
     </ion-row>
   </ion-item>
-  <ion-item *ngIf="launch.details != null">
+  <ion-item *ngIf="launch.details != null" style="padding-left: 0px;">
     <ion-row>
       <ion-col col-12>
-        <h2>Détails:</h2>
+        <h2>Details:</h2>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -63,10 +63,10 @@
       </ion-col>
     </ion-row>
   </ion-item>
-  <ion-item>
+  <ion-item style="padding-left: 0px;">
     <ion-row>
       <ion-col col-12>
-        <h2>Liens utiles:</h2>
+        <h2>Useful links:</h2>
       </ion-col>
     </ion-row>
     <ion-row>
