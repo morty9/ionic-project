@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content *ngIf="rocket != null">
+<ion-content padding *ngIf="rocket != null">
 
   <ion-grid>
     <ion-row>
@@ -21,22 +21,43 @@
         <img src="{{'../../assets/imgs/' + img}}" />
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col col-12>
-        <ion-item style="padding-left: 0px;">
+    <ion-item style="padding-left: 0px; padding-right: 0px;">
+      <ion-row style='width: 100%;'>
+        <ion-col col-10>
           <p>Operated by :
             <b style="color: #000000;">{{rocket.company}}</b>
           </p>
-        </ion-item>
-      </ion-col>
+        </ion-col>
+        <ion-col col-2>
+          <ion-icon *ngIf='rocket.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
+          <ion-icon *ngIf='rocket.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-row>
       <ion-col col-12>
         <ion-item style="padding-left: 0px;">
           <ion-row>
-            <p>Details :</p><br/>
+            <p>Details :</p>
+            <br/>
           </ion-row>
           <ion-row>
             <p text-wrap style="color: #000000;">{{rocket.description}}</p>
           </ion-row>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item style="padding-left: 0px;">
+          <p>First flight:</p>
+          <p>{{rocket.first_flight | date : "dd/MM/yyyy"}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item style="padding-left: 0px;">
+          <p>Cost per launch:</p>
+          <p>{{rocket.cost_per_launch}}$</p>
         </ion-item>
       </ion-col>
     </ion-row>

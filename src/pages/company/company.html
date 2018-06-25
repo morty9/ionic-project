@@ -5,15 +5,94 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title></ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu">Company</ion-icon>
+    </button>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
 
 
-<ion-content padding>
-
+<ion-content *ngIf="companyInfo != null">
+  <ion-grid>
+    <ion-row>
+      <img class="logo" src="../../assets/imgs/logospacex.png" />
+    </ion-row>
+    <ion-item class="no_padding">
+      <ion-row>
+        <ion-col col-12>
+          <ion-row>
+            <ion-icon name="person"></ion-icon>
+            <p>
+              <b>Founder, CEO, CTO:</b>&nbsp;&nbsp;{{companyInfo.founder}}</p>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-row>
+            <ion-icon name="person"></ion-icon>
+            <p>
+              <b>COO:</b>&nbsp;&nbsp;{{companyInfo.coo}}</p>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-row>
+            <ion-icon name="person"></ion-icon>
+            <p>
+              <b>CTO Propulsion:</b>&nbsp;&nbsp;{{companyInfo.cto_propulsion}}</p>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item class="no_padding">
+          <p>
+            <b>Founded in:</b>
+          </p>
+          <p>{{companyInfo.founded}}</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item class="no_padding">
+          <p>
+            <b>Employees:</b>
+          </p>
+          <p>{{companyInfo.employees}}</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-item class="no_padding">
+        <ion-row>
+          <ion-col col-12>
+            <ion-row>
+              <ion-icon name="pin"></ion-icon>
+              <p>{{companyInfo.headquarters.address}},&nbsp;{{companyInfo.headquarters.city}},&nbsp;{{companyInfo.headquarters.state}}</p>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="no_padding">
+        <ion-row>
+          <ion-col col-12>
+            <ion-row>
+              <p>
+                <b>Details:</b>
+              </p>
+            </ion-row>
+            <ion-row>
+              <p text-wrap>{{companyInfo.summary}}</p>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
 </ion-content>
