@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Capsule } from '../../app/Models/Capsule';
 
 /**
  * Generated class for the CapsulePage page.
@@ -15,11 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CapsulePage {
 
+capsule:Capsule;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CapsulePage');
+
+    this.capsule = this.navParams.data;
   }
 
 }
