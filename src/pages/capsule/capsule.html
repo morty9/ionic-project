@@ -49,6 +49,37 @@
       </ion-item>
 
       <ion-item style='padding-left: 0px;'>
+          <ion-row>
+              <ion-col col-6>
+                  <p>
+                      <b>Diameter:</b>
+                  </p>
+                  <ion-badge color="darkBlue">{{ capsule.diameter.meters + " meters - " + capsule.diameter.feet + " feet"}}</ion-badge>                  
+              </ion-col>
+              <ion-col col-6>
+                  <p>
+                      <b>Sidewall angle:</b>
+                  </p>
+                  <ion-badge color="darkBlue">{{ capsule.sidewall_angle_deg + " degree"}}</ion-badge>                  
+              </ion-col>
+            </ion-row>
+          <ion-row>
+              <ion-col col-6>
+                  <p>
+                      <b>Height Trunk:</b>
+                  </p>
+                  <ion-badge color="darkBlue">{{ capsule.height_w_trunk.meters + " meters - " + capsule.height_w_trunk.feet + " feet"}}</ion-badge>                  
+              </ion-col>
+              <ion-col col-6>
+                  <p>
+                      <b>Type:</b>
+                      <ion-badge color="darkBlue">{{ capsule.type}}</ion-badge>                  
+                  </p>
+              </ion-col>
+          </ion-row>
+      </ion-item>
+
+      <ion-item style='padding-left: 0px;'>
         <ion-row>
             <ion-col col-12>
               <p>
@@ -84,8 +115,45 @@
                 <ion-badge color="darkBlue">{{ capsule.return_payload_vol.cubic_meters + " m3 - " + capsule.return_payload_vol.cubic_feet + " feet3"}}</ion-badge>                  
               </ion-col>
           </ion-row>
+      </ion-item>   
+        
+      <ion-item *ngIf='capsule.heat_shield' style='padding-left: 0px;'>
+          <ion-row>
+              <ion-col col-12>
+                <B>
+                    <h2>Heat Shield Details:</h2>
+                </B>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+                <p>
+                    <b>Dev Partner:</b>
+                </p>
+                <h6>{{ capsule.heat_shield.dev_partner }}</h6>
+            </ion-col>
+            <ion-col col-6>
+                <p>
+                    <b>Material:</b>
+                </p>
+                <h6>{{ capsule.heat_shield.material }}</h6>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6>
+                  <p>
+                      <b>Size:</b>
+                  </p>
+                  <h6>{{ capsule.heat_shield.size_meters + " meters"}}</h6>
+              </ion-col>
+              <ion-col col-6>
+                  <p>
+                      <b>Temperature:</b>
+                  </p>
+                  <h6>{{ capsule.heat_shield.temp_degrees + " degree" }}</h6>
+              </ion-col>
+          </ion-row>
       </ion-item>
-      
-    
+
     </ion-grid>
 </ion-content>
