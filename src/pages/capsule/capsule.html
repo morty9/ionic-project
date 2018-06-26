@@ -22,9 +22,10 @@
             <h2>{{ capsule.name }}</h2>
           </ion-col>
           <ion-col col-6>
-            <p>Status:&nbsp;&nbsp;</p>
+            <p>Status:&nbsp;&nbsp;
             <ion-icon *ngIf='capsule.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
             <ion-icon *ngIf='capsule.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
+            </p>
           </ion-col>
         </ion-row>
       </ion-item>
