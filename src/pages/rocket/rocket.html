@@ -23,14 +23,19 @@
     </ion-row>
     <ion-item style="padding-left: 0px; padding-right: 0px;">
       <ion-row style='width: 100%;'>
-        <ion-col col-10>
+        <ion-col col-8>
           <p>Operated by :
             <b style="color: #000000;">{{rocket.company}}</b>
           </p>
         </ion-col>
         <ion-col col-2>
-          <ion-icon *ngIf='rocket.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
-          <ion-icon *ngIf='rocket.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
+            <p>
+              Status:
+            </p>
+        </ion-col>
+        <ion-col col-2>
+            <ion-icon *ngIf='rocket.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
+            <ion-icon *ngIf='rocket.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-item>
@@ -61,6 +66,124 @@
         </ion-item>
       </ion-col>
     </ion-row>
+
+    <ion-item style="padding-left: 0px;">
+      <ion-row>
+        <ion-col col-12>
+          <h2>Rocket Information</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p>
+            <b>Diameter:</b>
+            <ion-badge>{{ rocket.diameter.meters + " meters" }}</ion-badge>
+            <ion-badge>{{ rocket.diameter.feet + " feet" }}</ion-badge>
+          </p>                                
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <p>
+              <b>Mass:</b>
+              <ion-badge>{{ rocket.mass.kg + " kg" }}</ion-badge>
+              <ion-badge>{{ rocket.mass.lb + " lb" }}</ion-badge>
+            </p>                                
+          </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p>
+            <b>Height:</b>
+            <ion-badge>{{ rocket.height.meters + " meters" }}</ion-badge>
+            <ion-badge>{{ rocket.height.feet + " feet" }}</ion-badge>
+          </p>                                
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item style="padding-left: 0px;">
+        <ion-row>
+          <ion-col col-12>
+            <h2>Engine Information</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>
+              <p>
+                <b>Type:</b>
+              </p>
+              <h6>{{ rocket.engines.type }} </h6>                   
+            </ion-col>
+            <ion-col col-6>
+                <p>
+                  <b>Version:</b>
+                </p>
+                <h6>{{ rocket.engines.version }} </h6>                   
+              </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>
+              <p>
+                <b>Layout:</b>
+              </p>
+              <h6>{{ rocket.engines.layout }} </h6>                   
+            </ion-col>
+            <ion-col col-6>
+                <p>
+                  <b>Number:</b>
+                </p>
+                <h6>{{ rocket.engines.number }} </h6>                   
+              </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            <p>
+              <b>Propellant 1:</b>
+            </p>
+            <h6>{{ rocket.engines.propellant_1 }} </h6>                   
+          </ion-col>
+          <ion-col col-6>
+              <p>
+                <b>Propellant 2:</b>
+              </p>
+              <h6>{{ rocket.engines.propellant_2 }} </h6>                   
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+              <p>
+                  <b>Success Rate:</b>
+                  {{ rocket.success_rate_pct + "%" }}
+              </p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item style="padding-left: 0px;">
+        <ion-row>
+          <ion-col col-12>
+            <h2>Seconde Stage Information</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>
+              <p>
+                <b>Burn Time:</b>
+              </p>
+              <h6>{{ rocket.second_stage.burn_time_sec }} </h6>                   
+            </ion-col>
+            <ion-col col-6>
+                <p>
+                  <b>Fuel Amount:</b>
+                </p>
+                <h6>{{ rocket.second_stage.fuel_amount_tons + " tons" }} </h6>                   
+              </ion-col>
+          </ion-row>
+
+      </ion-item>
+
   </ion-grid>
 
 </ion-content>
