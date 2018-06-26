@@ -25,8 +25,12 @@
             <ion-col col-1 class="icons" style='padding-left:1px'>
               <ion-icon name="rocket" color="danger"></ion-icon>
             </ion-col>
-            <ion-col col-11>
+            <ion-col col-9>
               <h2 class="rocket_name">{{rocket.name}}</h2>
+            </ion-col>
+            <ion-col col-2>
+                <ion-icon *ngIf='rocket.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
+                <ion-icon *ngIf='rocket.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
             </ion-col>
           </ion-row>
           <ion-row>
