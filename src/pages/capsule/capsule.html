@@ -66,6 +66,26 @@
             </ion-col>
         </ion-row>
       </ion-item>
+
+      <ion-item style='padding-left: 0px;'>
+          <ion-row>
+              <ion-col col-12>
+                <p>
+                  <b>Launch Payload Volume:</b>
+                </p>
+                <ion-badge color="darkBlue">{{ capsule.launch_payload_vol.cubic_meters + " m3 - " + capsule.launch_payload_vol.cubic_feet + " feet3"}}</ion-badge>                  
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12>
+                <p>
+                  <b>Return Payload Volume:</b>
+                </p>
+                <ion-badge color="darkBlue">{{ capsule.return_payload_vol.cubic_meters + " m3 - " + capsule.return_payload_vol.cubic_feet + " feet3"}}</ion-badge>                  
+              </ion-col>
+          </ion-row>
+      </ion-item>
       
+    
     </ion-grid>
 </ion-content>
