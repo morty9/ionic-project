@@ -73,5 +73,23 @@
       <p>Details:</p>
       <h2 text-wrap>{{ launchpad.details }}</h2>
     </ion-item>
+
+    <ion-item *ngIf='launchpad.vehicles_launched'>
+        <ion-row>
+            <ion-col col-12>
+              <h2>Vehicles Launched:</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-list *ngFor="let r of launchpad.vehicles_launched">
+                <ion-grid>
+                  <p>
+                    {{ r }}
+                  </p>
+                </ion-grid>
+            </ion-list>
+        </ion-row>
+    </ion-item>
+
   </ion-grid>
 </ion-content>
