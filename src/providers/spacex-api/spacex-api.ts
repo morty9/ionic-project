@@ -25,19 +25,8 @@ export class SpacexApiProvider {
 
   constructor(private http: HttpClient) { }
 
-  getAllLaunches(params?: any): Observable<Launch[]> {
+  getAllLaunches(): Observable<Launch[]> {
     const endpointUrl = `${this.baseUrl}/launches/all`;
-    if (params) {
-      let httpParams = new HttpParams();
-      Object.keys(params).forEach(key => {
-        console.log("Search param");
-        httpParams = httpParams.append(key, params[key]);
-        return this.http.get<Launch[]>(endpointUrl, { params: httpParams })
-          .pipe(
-            catchError(this.handleError)
-          );
-      });
-    }
     return this.http.get<Launch[]>(endpointUrl)
       .pipe(
         catchError(this.handleError)
@@ -45,21 +34,14 @@ export class SpacexApiProvider {
   }
 
   getLaunchesByParams(params?: any): Observable<Launch[]> {
-    const endpointUrl = `${this.baseUrl}/launches`;
-    if (params) {
-      let httpParams = new HttpParams();
-      Object.keys(params).forEach(key => {
-        console.log("Search param");
-        httpParams = httpParams.append(key, params[key]);
-        return this.http.get<Launch[]>(endpointUrl, { params: httpParams })
-          .pipe(
-            catchError(this.handleError)
-          );
-      });
-    }
-    return this.http.get<Launch[]>(endpointUrl)
+    var endpointUrl = `${this.baseUrl}/launches?`;
+    Object.keys(params).forEach( key => {
+      endpointUrl += key + "=" + params[key] + "&";
+    });
+
+    return this.http.get<Launch[]>(endpointUrl.substr(0, endpointUrl.length - 1))
       .pipe(
-        catchError(this.handleError)
+         catchError(this.handleError)
       );
   }
 

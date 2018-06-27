@@ -7,7 +7,6 @@ page-launch-list {
     .badge {
         padding: 5px;
         margin: 5px;
-        //background-color: #191C1F;
         color: #FFFFFF;
         border: solid 1px;
     }
@@ -21,4 +20,23 @@ page-launch-list {
         float: right;
     }
 
+    .card_counter {
+        background-color: #53ACA6;
+    }
+
+    .title_uplaunch {
+        font-weight: bold;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    .first_title {
+        font-style: italic;
+        text-align: center;
+    }
+
+    .timer_icon {
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
