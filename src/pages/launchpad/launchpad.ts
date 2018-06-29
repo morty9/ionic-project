@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Launchpad } from '../../app/Models/Launchpad';
+import { Rocket } from '../../app/Models/Rocket';
+import { RocketPage } from '../rocket/rocket';
 
 /**
  * Generated class for the LaunchpadPage page.
@@ -24,6 +26,10 @@ export class LaunchpadPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchpadPage');
     this.launchpad = this.navParams.data;
+  }
+
+  goToRocketDetails(rocket : Rocket, img: String) {
+    this.navCtrl.push(RocketPage, {rocket: rocket, img: img});
   }
 
 }

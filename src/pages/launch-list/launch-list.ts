@@ -4,6 +4,7 @@ import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { Launch } from '../../app/Models/Launch';
 import { LaunchPage } from '../launch/launch';
 import { LaunchpadListPage } from '../launchpad-list/launchpad-list';
+import { Rocket } from '../../app/Models/Rocket';
 
 /**
  * Generated class for the LaunchListPage page.
