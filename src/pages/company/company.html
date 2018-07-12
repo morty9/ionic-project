@@ -4,71 +4,111 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!-- HEADER -->
 <ion-header>
   <ion-navbar>
+    <!-- Toogle menu button -->
     <button ion-button menuToggle>
       <ion-icon name="menu">Company</ion-icon>
     </button>
-    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- CONTENT -->
+<ion-content padding *ngIf="companyInfo != null">
 
-<ion-content *ngIf="companyInfo != null">
+  <!-- Grid -->
   <ion-grid>
+
+    <!-- Grid row -->
     <ion-row>
       <img class="logo" src="../../assets/imgs/logospacex.png" />
     </ion-row>
+
+    <!-- Grid row -->
+    <ion-row class="history_title">
+
+      <!-- Grid column -->
+      <ion-col col-12>
+        <h3 class="title">Company Informations</h3>
+      </ion-col>
+    </ion-row>
+
+    <!-- FIRST ITEM -->
     <ion-item class="no_padding">
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <ion-row>
             <ion-icon name="person"></ion-icon>
             <p>
-              <b>Founder, CEO, CTO:</b>&nbsp;&nbsp;{{companyInfo.founder}}</p>
+              <b class="subtitle">Founder, CEO, CTO:</b>&nbsp;&nbsp;{{companyInfo.founder}}</p>
           </ion-row>
         </ion-col>
       </ion-row>
+
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <ion-row>
             <ion-icon name="person"></ion-icon>
             <p>
-              <b>COO:</b>&nbsp;&nbsp;{{companyInfo.coo}}</p>
+              <b class="subtitle">COO:</b>&nbsp;&nbsp;{{companyInfo.coo}}</p>
           </ion-row>
         </ion-col>
       </ion-row>
+
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <ion-row>
             <ion-icon name="person"></ion-icon>
             <p>
-              <b>CTO Propulsion:</b>&nbsp;&nbsp;{{companyInfo.cto_propulsion}}</p>
+              <b class="subtitle">CTO Propulsion:</b>&nbsp;&nbsp;{{companyInfo.cto_propulsion}}</p>
           </ion-row>
         </ion-col>
       </ion-row>
     </ion-item>
+    <!-- END OF FIRST ITEM -->
+
+    <!-- SECOND ITEM -->
+    <!-- Grid row -->
     <ion-row>
+      <!-- Grid column -->
       <ion-col col-6>
+        <!-- Founded item -->
         <ion-item class="no_padding">
           <p>
-            <b>Founded in:</b>
+            <b class="subtitle">Founded in:</b>
           </p>
           <p>{{companyInfo.founded}}</p>
         </ion-item>
       </ion-col>
+
+      <!-- Grid column -->
       <ion-col col-6>
+        <!-- Employees item -->
         <ion-item class="no_padding">
-          <p>
+          <p class="subtitle">
             <b>Employees:</b>
           </p>
           <p>{{companyInfo.employees}}</p>
         </ion-item>
       </ion-col>
     </ion-row>
+    <!-- END OF SECOND ITEM -->
+
+    <!-- THIRD ITEM -->
+    <!-- Grid row -->
     <ion-row>
+      <!-- Address item -->
       <ion-item class="no_padding">
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-12>
             <ion-row>
               <ion-icon name="pin"></ion-icon>
@@ -78,12 +118,18 @@
         </ion-row>
       </ion-item>
     </ion-row>
+    <!-- END OF THIRD ITEM -->
+
+    <!-- FOURTH ITEM -->
+    <!-- Grid row -->
     <ion-row>
+      <!-- Summary item -->
       <ion-item class="no_padding">
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-12>
             <ion-row>
-              <p>
+              <p class="subtitle">
                 <b>Details:</b>
               </p>
             </ion-row>
@@ -93,6 +139,91 @@
           </ion-col>
         </ion-row>
       </ion-item>
+    </ion-row>
+    <!-- END OF FOURTH -->
+
+    <!-- FIFTH ITEM -->
+    <!-- Grid row -->
+    <ion-row>
+      <!-- Item title -->
+      <ion-row class="history_title">
+        <ion-col col-12>
+          <h3 class="title">Company History</h3>
+        </ion-col>
+      </ion-row>
+
+      <!-- LIST OF HISTORY -->
+      <ion-list no-padding>
+        <ion-item class="no_padding" *ngFor="let history of companyHistory">
+
+          <!-- Grid row -->
+          <ion-row>
+            <!-- Grid column -->
+            <ion-col col-8 text-wrap>
+              <h4>
+                <b>{{ history.title }}</b>
+              </h4>
+            </ion-col>
+            <!-- Grid column -->
+            <ion-col col-4>
+              {{ history.event_date_utc | date : "dd/MM/yyyy" }}
+            </ion-col>
+          </ion-row>
+
+          <!-- Grid row -->
+          <ion-row>
+            <!-- Grid column -->
+            <ion-col col-12 text-wrap>
+              <p>{{ history.details }}</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Grid row -->
+          <ion-row>
+            <!-- Grid column -->
+            <ion-col col-2 class="icons">
+              <ion-icon name="book" color="darkBlue" style='margin-right: auto; margin-left: auto;'></ion-icon>
+            </ion-col>
+            <!-- Grid column -->
+            <ion-col col-10 class="links">
+              <h3>
+                <a href="{{ history.links.article }}" target="_blank">Article</a>
+              </h3>
+            </ion-col>
+          </ion-row>
+
+          <!-- Grid row -->
+          <ion-row>
+            <!-- Grid column -->
+            <ion-col col-2 class="icons">
+              <ion-icon name="book" color="darkBlue" style='margin-right: auto; margin-left: auto;'></ion-icon>
+            </ion-col>
+            <!-- Grid column -->
+            <ion-col col-10 class="links">
+              <h3>
+                <a href="{{ history.links.wikipedia }}" target="_blank">Wikipedia</a>
+              </h3>
+            </ion-col>
+          </ion-row>
+
+          <!-- Grid row -->
+          <ion-row>
+            <!-- Grid column -->
+            <ion-col col-2 class="icons">
+              <ion-icon name="book" color="darkBlue" style='margin-right: auto; margin-left: auto;'></ion-icon>
+            </ion-col>
+            <!-- Grid column -->
+            <ion-col col-10 class="links">
+              <h3>
+                <a href="{{ history.links.reddit }}" target="_blank">Reddit</a>
+              </h3>
+            </ion-col>
+          </ion-row>
+
+        </ion-item>
+      </ion-list>
+      <!-- END OF LIST -->
+
     </ion-row>
   </ion-grid>
 </ion-content>

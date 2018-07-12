@@ -167,12 +167,22 @@ export class SpacexApiProvider {
       ); 
   }
 
-  getCompanyHistory(): Observable<CompanyHistory> {
-    const endpointUrl = `${this.baseUrl}/info/history`;
-    return this.http.get<CompanyHistory>(endpointUrl)
+  getCompanyHistory(params?: any): Observable<CompanyHistory[]> {
+    /*const endpointUrl = `${this.baseUrl}/info/history`;
+    return this.http.get<CompanyHistory[]>(endpointUrl)
       .pipe(
         catchError(this.handleError)
-      ); 
+      ); */
+    
+    var endpointUrl = `${this.baseUrl}/info/history?`;
+    Object.keys(params).forEach( key => {
+      endpointUrl += key + "=" + params[key] + "&";
+    });
+
+    return this.http.get<CompanyHistory[]>(endpointUrl.substr(0, endpointUrl.length - 1))
+      .pipe(
+         catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse) {
