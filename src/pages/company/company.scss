@@ -9,5 +9,31 @@ page-company {
         padding-left: 0px;
     }
 
+    .history_title {
+        margin-top: 20px;
+    }
+
+    .subtitle {
+        color: black;
+    }
+
+    .title {
+        color: darkblue;
+    }
+
+    .icons {
+        display: flex;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+    }
+
+    .details_item {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 }
 
