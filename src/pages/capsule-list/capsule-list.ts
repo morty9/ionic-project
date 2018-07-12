@@ -21,17 +21,16 @@ export class CapsuleListPage {
   capsules : Capsule[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
+
+    // Get of all capsules data from api
     this.spacexapi.getAllCapsules().subscribe(data => {
       this.capsules = data;
-      console.log(this.capsules);
-      
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CapsuleListPage');
-  }
+  ionViewDidLoad() {}
 
+  // Allow to transfert capsule object to CapsulePage 
   goToDetails(capsule : Capsule) {
     this.navCtrl.push(CapsulePage, capsule);
   }

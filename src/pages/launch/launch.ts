@@ -25,33 +25,29 @@ export class LaunchPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
+    
+    // Get all rockets data from api
     this.spacexapi.getAllRockets().subscribe(data => {
       this.rockets = data;
-      console.log(this.rockets);
     });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchPage');
     this.launch = this.navParams.data;
-    console.log(this.launch);
   }
 
+  // Navigation to the rocket details
   goToRocketDetails(rocketStr: String) {
     let r : Rocket;
     let index: number = 0;
-    //console.log("Rocket String" + rocketStr);
 
-    for(r of this.rockets)
-    {
+    for(r of this.rockets) {
       console.log(r.name + "<==>" + rocketStr);
 
-        if (r.name == rocketStr)
-        {
-          console.log("SAME");
-
+        if (r.name == rocketStr) {
           this.navCtrl.push(RocketPage, {rocket: r, img: this.imgRocket[index]});
         }
+
       index += 1;
     }
   }

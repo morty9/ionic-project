@@ -26,21 +26,30 @@ export class LaunchListPage {
   upcoming : string;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spacexapi: SpacexApiProvider) {
+
+    // Get all launches data by "descendant" order from api
     this.spacexapi.getLaunchesByParams({ order: 'desc' }).subscribe(data => {
       this.launches = data;
-      console.log(this.launches);
-      
     });
 
+    // Get upcoming launch data from api
     this.spacexapi.getUpcomingLaunches().subscribe(data => {
       this.upcomingLaunches = data;
       this.upLaunch = data[0];
-      console.log(this.upLaunch);
-      
+
+      // Set next launch
       this.setNextLaunch();
     });
   }
 
+  ionViewDidLoad() {}
+
+  // Allow to pass launch object to LaunchPage
+  goToDetails(launch: Launch) {
+    this.navCtrl.push(LaunchPage, launch);
+  }
+
+  // Allow to get the first next launch of the list
   setNextLaunch() {
 
     setTimeout(() => {
@@ -50,9 +59,9 @@ export class LaunchListPage {
       
       this.setNextLaunch();
     }, 1000);
-
   }
 
+  // Counter creation
   private formatTime(msTime: number): string{
 
     var res: string = "";
@@ -92,14 +101,6 @@ export class LaunchListPage {
     }
 
     return res;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchListPage');
-  }
-
-  goToDetails(launch: Launch) {
-    this.navCtrl.push(LaunchPage, launch);
   }
 
 }

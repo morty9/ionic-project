@@ -9,7 +9,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
-import { HomePage } from '../pages/home/home';
 import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
 import { CompanyPage } from '../pages/company/company';
 import { LaunchpadListPage } from '../pages/launchpad-list/launchpad-list';
@@ -26,7 +25,6 @@ import { LatestLaunchPage } from '../pages/latest-launch/latest-launch';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     LaunchListPage,
     UpcomingLaunchListPage,
     LatestLaunchPage,
@@ -48,7 +46,6 @@ import { LatestLaunchPage } from '../pages/latest-launch/latest-launch';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     LaunchListPage,
     UpcomingLaunchListPage,
     LatestLaunchPage,

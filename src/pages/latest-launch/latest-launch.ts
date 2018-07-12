@@ -20,14 +20,13 @@ export class LatestLaunchPage {
   launch : Launch;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
+
+    // Get latest launch from api
     this.spacexapi.getLatestLaunches().subscribe(data => {
       this.launch = data;
-      console.log(this.launch);
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LatestLaunchPage');
-  }
+  ionViewDidLoad() {}
 
 }

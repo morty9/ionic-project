@@ -4,8 +4,12 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!-- HEADER -->
 <ion-header>
+
   <ion-navbar>
+    <!-- TOOGLE MENU -->
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -13,17 +17,24 @@
   </ion-navbar>
 </ion-header>
 
-
+<!-- CONTENT -->
 <ion-content padding>
+
+  <!-- LIST OF CAPSULES -->
   <ion-list>
     <button ion-item *ngFor="let capsule of capsules" (click)="goToDetails(capsule)">
+
+      <!-- Grid -->
       <ion-grid>
+        <!-- Grid row -->
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-6>
             <b>
               {{ capsule.name }}
             </b>
           </ion-col>
+          <!-- Grid column -->
           <ion-col col-6>
             <p>Status:&nbsp;&nbsp;
               <ion-icon *ngIf='capsule.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
@@ -31,12 +42,16 @@
             </p>
           </ion-col>
         </ion-row>
+
+        <!-- Grid row -->
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-6>
             <h6>
               {{ "Type: " + capsule.type }}
             </h6>
           </ion-col>
+          <!-- Grid column -->
           <ion-col col-6>
             <h6>
               {{ "Orbit since " + capsule.orbit_duration_yr + "y" }}
@@ -44,6 +59,8 @@
           </ion-col>
         </ion-row>
       </ion-grid>
+
     </button>
+    
   </ion-list>
 </ion-content>

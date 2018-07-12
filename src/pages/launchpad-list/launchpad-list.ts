@@ -21,17 +21,16 @@ export class LaunchpadListPage {
   launchpads : Launchpad[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
+
+    // Get all launchpads data from api
     this.spacexapi.getAllLaunchpads().subscribe(data => {
       this.launchpads = data;
-      console.log(this.launchpads);
-      
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchpadListPage');
-  }
+  ionViewDidLoad() {}
 
+  // Allow to pass launchpad object to LaunchpadPage
   goToDetails(launchpad: Launchpad) {
     this.navCtrl.push(LaunchpadPage, launchpad);
   }
