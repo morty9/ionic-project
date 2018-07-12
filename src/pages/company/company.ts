@@ -23,27 +23,21 @@ export class CompanyPage {
   companyHistory : CompanyHistory[];
   companyInfo : CompanyInfo;
 
-  text: string;
-  //limit: number = 40;
-  //truncating = true;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private spacexapi: SpacexApiProvider) {
   
+    // Get company history data from api by "descendant" order
     this.spacexapi.getCompanyHistory({ order: 'desc' }).subscribe(dataHistory => {
       this.companyHistory = dataHistory;
-      console.log(this.companyHistory);
     });
 
+    // Get company info data from api
     this.spacexapi.getCompanyInfo().subscribe(dataInfo => {
       this.companyInfo = dataInfo;
-      console.log(this.companyInfo);
     });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CompanyPage');
-  }
+  ionViewDidLoad() {}
 
 }
 

@@ -21,18 +21,16 @@ export class UpcomingLaunchListPage {
   launches : Launch[];
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spacexapi: SpacexApiProvider) {
-    console.log("constructor");
     
+    // Get upcoming launch list data from api
     this.spacexapi.getUpcomingLaunches().subscribe(data => {
       this.launches = data;
-      console.log(this.launches);
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchListPage');
-  }
+  ionViewDidLoad() {}
 
+  // Allow to pass launch object to LaunchPage
   goToDetails(launch: Launch) {
     this.navCtrl.push(LaunchPage, launch);
   }

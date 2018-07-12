@@ -4,6 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!-- HEADER -->
 <ion-header>
 
   <ion-navbar>
@@ -12,19 +14,30 @@
 
 </ion-header>
 
-
+<!-- CONTENT -->
 <ion-content padding>
+
+  <!-- Grid -->
   <ion-grid *ngIf='launchpad'>
+
+    <!-- FIRST ITEM -->
     <ion-item style='padding-left: 0px;'>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <p>Name:&nbsp;</p>
           <h2>{{ launchpad.location.name }}</h2>
         </ion-col>
       </ion-row>
     </ion-item>
+    <!-- END OF FIRST ITEM -->
+
+    <!-- SECOND ITEM -->
     <ion-item style='padding-left: 0px;'>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <ion-row>
             <p>Fullname:&nbsp;</p>
@@ -33,15 +46,23 @@
         </ion-col>
       </ion-row>
     </ion-item>
+    <!-- END OF SECOND ITEM -->
+
+    <!-- THIRD ITEM -->
     <ion-item style='padding-left: 0px;'>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-6>
+          <!-- Grid row -->
           <ion-row>
             <ion-icon name="pin" color="darkBlue"></ion-icon>
             <h2 text-wrap>{{ launchpad.location.region }}</h2>
           </ion-row>
         </ion-col>
+        <!-- Grid column -->
         <ion-col col-6>
+          <!-- Grid row -->
           <ion-row>
             <h2>Status:&nbsp;&nbsp;</h2>
             <ion-icon *ngIf='launchpad.status == "retired"' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
@@ -51,7 +72,12 @@
         </ion-col>
       </ion-row>
     </ion-item>
+    <!-- END OF THIRD ITEM -->
+
+    <!-- FOURTH ITEM -->
+    <!-- Grid row -->
     <ion-row>
+      <!-- Grid column -->
       <ion-col col-6>
         <ion-item style='padding-left: 0px;'>
           <p>
@@ -60,6 +86,7 @@
           <ion-badge color="darkBlue">{{ launchpad.location.latitude }}</ion-badge>
         </ion-item>
       </ion-col>
+      <!-- Grid column -->
       <ion-col col-6>
         <ion-item style='padding-left: 0px;'>
           <p>
@@ -69,18 +96,27 @@
         </ion-item>
       </ion-col>
     </ion-row>
+    <!-- END OF FOURTH ITEM -->
+
+    <!-- FIFTH ITEM -->
     <ion-item style='padding-left: 0px;'>
       <p>Details:</p>
       <h2 text-wrap>{{ launchpad.details }}</h2>
     </ion-item>
+    <!-- END OF FIFTH ITEM -->
 
+    <!-- SIXTH ITEM -->
     <ion-item *ngIf='launchpad.vehicles_launched'>
+      <!-- Grid row -->
         <ion-row>
+          <!-- Grid column -->
             <ion-col col-12>
               <h2>Vehicles Launched:</h2>
             </ion-col>
         </ion-row>
+        <!-- Grid row -->
         <ion-row>
+            <!-- LIST OF ROCKETS -->
             <ion-list *ngFor="let r of launchpad.vehicles_launched">
                 <ion-grid>
                   <p>
@@ -90,6 +126,7 @@
             </ion-list>
         </ion-row>
     </ion-item>
-
+    <!-- END OF SIXTH ITEM -->
+    
   </ion-grid>
 </ion-content>

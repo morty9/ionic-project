@@ -16,14 +16,11 @@ import { Capsule } from '../../app/Models/Capsule';
 })
 export class CapsulePage {
 
-capsule:Capsule;
+  capsule:Capsule;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CapsulePage');
-
     this.capsule = this.navParams.data;
   }
 

@@ -22,11 +22,8 @@ export class MenuLaunchesPage {
   latestLaunches : any = LatestLaunchPage;
   upcomingLaunches : any = UpcomingLaunchListPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuLaunchesPage');
-  }
+  ionViewDidLoad() {}
 
 }

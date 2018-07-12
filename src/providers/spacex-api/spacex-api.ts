@@ -25,6 +25,10 @@ export class SpacexApiProvider {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Get all launches
+   * @returns array of launch
+   */
   getAllLaunches(): Observable<Launch[]> {
     const endpointUrl = `${this.baseUrl}/launches/all`;
     return this.http.get<Launch[]>(endpointUrl)
@@ -33,42 +37,64 @@ export class SpacexApiProvider {
       );
   }
 
+  /**
+   * Get launches by parameters
+   * @param params 
+   * @return array of launch
+   */
   getLaunchesByParams(params?: any): Observable<Launch[]> {
     var endpointUrl = `${this.baseUrl}/launches?`;
-    Object.keys(params).forEach( key => {
+    Object.keys(params).forEach(key => {
       endpointUrl += key + "=" + params[key] + "&";
     });
 
     return this.http.get<Launch[]>(endpointUrl.substr(0, endpointUrl.length - 1))
       .pipe(
-         catchError(this.handleError)
+        catchError(this.handleError)
       );
   }
 
+  /**
+   * Get latest launches
+   * @return launch
+   */
   getLatestLaunches(): Observable<Launch> {
-      const endpointUrl = `${this.baseUrl}/launches/latest`;
-      return this.http.get<Launch>(endpointUrl)
-        .pipe(
-          catchError(this.handleError)
-        );
+    const endpointUrl = `${this.baseUrl}/launches/latest`;
+    return this.http.get<Launch>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
+  /**
+   * Get next launches
+   * @return array of launch
+   */
   getNextLaunches(): Observable<Launch[]> {
     const endpointUrl = `${this.baseUrl}/launches/next`;
-      return this.http.get<Launch[]>(endpointUrl)
-        .pipe(
-          catchError(this.handleError)
-        );
+    return this.http.get<Launch[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
+  /**
+   * Get upcoming launches
+   * @return array of launch
+   */
   getUpcomingLaunches(): Observable<Launch[]> {
     const endpointUrl = `${this.baseUrl}/launches/upcoming`;
-      return this.http.get<Launch[]>(endpointUrl) 
-        .pipe(
-          catchError(this.handleError)
-        );
+    return this.http.get<Launch[]>(endpointUrl)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
+  /**
+   * Get all rockets
+   * @param params 
+   * @return array of rockets
+   */
   getAllRockets(params?: string): Observable<Rocket[]> {
     const endpointUrl = `${this.baseUrl}/rockets`;
     if (params) {
@@ -87,6 +113,11 @@ export class SpacexApiProvider {
       );
   }
 
+  /**
+   * Get all capsules
+   * @param params 
+   * @return array of capsule
+   */
   getAllCapsules(params?: string): Observable<Capsule[]> {
     const endpointUrl = `${this.baseUrl}/capsules`;
     if (params) {
@@ -99,12 +130,17 @@ export class SpacexApiProvider {
           );
       });
     }
-    return this.http.get<Capsule[]>(endpointUrl) 
+    return this.http.get<Capsule[]>(endpointUrl)
       .pipe(
         catchError(this.handleError)
       );
   }
 
+  /**
+   * Get all launchpads
+   * @param params 
+   * @return array of launchpad
+   */
   getAllLaunchpads(params?: string): Observable<Launchpad[]> {
     const endpointUrl = `${this.baseUrl}/launchpads`;
     if (params) {
@@ -117,12 +153,17 @@ export class SpacexApiProvider {
           );
       });
     }
-    return this.http.get<Launchpad[]>(endpointUrl) 
+    return this.http.get<Launchpad[]>(endpointUrl)
       .pipe(
         catchError(this.handleError)
       );
   }
 
+  /**
+   * Get all capsules details
+   * @param params 
+   * @return array of capsule details
+   */
   getAllCapsuleDetails(params?: string): Observable<CapsuleDetails[]> {
     const endpointUrl = `${this.baseUrl}/parts/caps`;
     if (params) {
@@ -141,6 +182,11 @@ export class SpacexApiProvider {
       );
   }
 
+  /**
+   * Get all core details
+   * @param params 
+   * @return array of core details
+   */
   getAllCoreDetails(params?: string): Observable<CoreDetails[]> {
     const endpointUrl = `${this.baseUrl}/parts/cores`;
     if (params) {
@@ -159,32 +205,40 @@ export class SpacexApiProvider {
       );
   }
 
+  /**
+   * Get company information
+   * @return CompanyInfo
+   */
   getCompanyInfo(): Observable<CompanyInfo> {
     const endpointUrl = `${this.baseUrl}/info`;
     return this.http.get<CompanyInfo>(endpointUrl)
       .pipe(
         catchError(this.handleError)
-      ); 
+      );
   }
 
+  /**
+   * Get company history
+   * @param params 
+   * @return array of companyHistory
+   */
   getCompanyHistory(params?: any): Observable<CompanyHistory[]> {
-    /*const endpointUrl = `${this.baseUrl}/info/history`;
-    return this.http.get<CompanyHistory[]>(endpointUrl)
-      .pipe(
-        catchError(this.handleError)
-      ); */
-    
     var endpointUrl = `${this.baseUrl}/info/history?`;
-    Object.keys(params).forEach( key => {
+    Object.keys(params).forEach(key => {
       endpointUrl += key + "=" + params[key] + "&";
     });
 
     return this.http.get<CompanyHistory[]>(endpointUrl.substr(0, endpointUrl.length - 1))
       .pipe(
-         catchError(this.handleError)
+        catchError(this.handleError)
       );
   }
 
+  /**
+   * Error gestion
+   * @param error 
+   * @return error
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

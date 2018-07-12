@@ -4,6 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!-- HEADER -->
 <ion-header>
 
   <ion-navbar>
@@ -12,14 +14,21 @@
 
 </ion-header>
 
+<!-- CONTENT -->
 <ion-content *ngIf="launch" padding>
+
+  <!-- FIRST ITEM -->
   <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads" style='padding-left: 0px'>
+    <!-- Grid -->
     <ion-grid>
+      <!-- Grid row -->
       <ion-row>
         <ion-row style="width:100%">
+          <!-- Grid column -->
           <ion-col col-5 *ngIf="launch.links.mission_patch != null" class="img_container">
             <img [src]="launch.links.mission_patch" />
           </ion-col>
+          <!-- Grid column -->
           <ion-col col-7 *ngIf="launch.links.mission_patch != null">
             <ion-row class="mission_name">
               <h1 text-wrap class="bold_element">{{launch.mission_name}}</h1>
@@ -28,6 +37,7 @@
               <h2 text-wrap class="bold_element">{{launch.launch_date_utc | date : "dd/MM/yyyy"}}</h2>
             </ion-row>
           </ion-col>
+          <!-- Grid column -->
           <ion-col col-12 *ngIf="launch.links.mission_patch == null">
             <ion-row style="width: 100%;" class="mission_name">
               <h1 text-wrap class="bold_element">{{launch.mission_name}}</h1>
@@ -37,12 +47,15 @@
             </ion-row>
           </ion-col>
         </ion-row>
+        <!-- Grid row -->
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-8>
             <p text-wrap class="infos">Client: {{payload.customers}}</p>
             <p text-wrap class="infos">Site: {{launch.launch_site.site_name}}</p>
             <p text-wrap class="infos">Rocket: {{launch.rocket.rocket_name}}</p>
           </ion-col>
+          <!-- Grid column -->
           <ion-col col-4 text-wrap>
             <ion-badge class="badge" color="primary">{{payload.orbit}}</ion-badge>
             <ion-badge class="badge" color="primary">{{payload.payload_type}}</ion-badge>
@@ -52,75 +65,103 @@
       </ion-row>
     </ion-grid>
   </ion-item>
+  <!-- END OF FIRST ITEM -->
+
+  <!-- SECOND ITEM -->
   <ion-item *ngIf="launch.details != null" style='padding-left: 0px'>
     <ion-grid>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <h2>Details:</h2>
         </ion-col>
       </ion-row>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <p text-wrap>{{launch.details}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-item>
+  <!-- END OF SECOND ITEM -->
 
+  <!-- THIRD ITEM -->
   <ion-item style='padding-left: 0px'>
     <ion-grid>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <h2>Rocket Information</h2>
         </ion-col>
       </ion-row>
+      <!-- Grid row -->
       <ion-row>
         <button ion-item *ngIf="launch.rocket" (click)="goToRocketDetails(launch.rocket.rocket_name)" style='padding-left: 0px'>
           <ion-row>
+            <!-- Grid column -->
             <ion-col col-6>
-              <p><b>Name: </b>{{ launch.rocket.rocket_name }}</p>
+              <p>
+                <b>Name: </b>{{ launch.rocket.rocket_name }}</p>
             </ion-col>
+            <!-- Grid column -->
             <ion-col col-6>
-              <p><b>Type: </b>{{ launch.rocket.rocket_type }}</p>
+              <p>
+                <b>Type: </b>{{ launch.rocket.rocket_type }}</p>
             </ion-col>
           </ion-row>
         </button>
       </ion-row>
-
     </ion-grid>
   </ion-item>
+  <!-- END OF THIRD ITEM -->
 
+  <!-- FOURTH ITEM -->
   <ion-item style='padding-left: 0px'>
     <ion-grid>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-12>
           <h2>Useful links:</h2>
         </ion-col>
       </ion-row>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-2 class="icons">
           <ion-icon name="logo-youtube" style='margin-right: auto; margin-left: auto;'></ion-icon>
         </ion-col>
+        <!-- Grid column -->
         <ion-col col-10 class="links">
           <h3>
             <a href="{{ launch.links.video_link }}" target="_blank">{{ launch.mission_name }} Vidéo</a>
           </h3>
         </ion-col>
       </ion-row>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-2 class="icons">
           <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
         </ion-col>
+        <!-- Grid column -->
         <ion-col col-10 class="links">
           <h3>
             <a href="{{ launch.links.article_link }}" target="_blank">{{ launch.mission_name }} Article</a>
           </h3>
         </ion-col>
       </ion-row>
+      <!-- Grid row -->
       <ion-row>
+        <!-- Grid column -->
         <ion-col col-2 class="icons">
           <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
         </ion-col>
+        <!-- Grid column -->
         <ion-col col-10 class="links">
           <h3>
             <a href="{{ launch.links.wikipedia }}" target="_blank">{{ launch.mission_name }} Wiki</a>
@@ -129,4 +170,6 @@
       </ion-row>
     </ion-grid>
   </ion-item>
+  <!-- END OF FOURTH ITEM -->
+  
 </ion-content>

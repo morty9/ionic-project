@@ -4,8 +4,11 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!-- HEADER -->
 <ion-header>
   <ion-navbar>
+    <!-- TOOGLE MENU -->
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -13,33 +16,43 @@
   </ion-navbar>
 </ion-header>
 
-
+<!-- CONTENT -->
 <ion-content>
+  <!-- LIST OF LAUNCHPADS -->
   <ion-list>
     <button ion-item *ngFor="let launchpad of launchpads" (click)="goToDetails(launchpad)">
+      <!-- Grid -->
       <ion-grid>
+        <!-- Grid row -->
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-12>
             {{ launchpad.location.name }}
           </ion-col>
         </ion-row>
+        <!-- Grid row -->
         <ion-row>
+          <!-- Grid column -->
           <ion-col col-6>
+            <!-- Grid row -->
             <ion-row>
-              <ion-icon name="pin"></ion-icon><p>{{ launchpad.location.region }}</p>
+              <ion-icon name="pin"></ion-icon>
+              <p>{{ launchpad.location.region }}</p>
             </ion-row>
           </ion-col>
+          <!-- Grid column -->
           <ion-col col-6>
-              <ion-row>
-                <p>Status:&nbsp;&nbsp;</p>
-                  <ion-icon *ngIf='launchpad.status == "retired"' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
-                  <ion-icon *ngIf='launchpad.status == "active"' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
-                  <ion-icon *ngIf='launchpad.status == "under construction"' name="construct" size="large" color="primary" style="float: right;"></ion-icon>
-              </ion-row>
+            <!-- Grid row -->
+            <ion-row>
+              <p>Status:&nbsp;&nbsp;</p>
+              <ion-icon *ngIf='launchpad.status == "retired"' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
+              <ion-icon *ngIf='launchpad.status == "active"' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
+              <ion-icon *ngIf='launchpad.status == "under construction"' name="construct" size="large" color="primary" style="float: right;"></ion-icon>
+            </ion-row>
           </ion-col>
         </ion-row>
       </ion-grid>
-
     </button>
   </ion-list>
+  <!-- END OF LIST -->
 </ion-content>

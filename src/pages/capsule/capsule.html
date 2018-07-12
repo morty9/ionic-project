@@ -4,157 +4,208 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!-- HEADER -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Capsule</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Capsule</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
-
+<!-- CONTENT -->
 <ion-content padding>
+
+    <!-- Grid -->
     <ion-grid *ngIf='capsule'>
-      <ion-item style='padding-left: 0px;'>
-        <ion-row>
-          <ion-col col-6>
-            <p>Name:&nbsp;</p>
-            <h2>{{ capsule.name }}</h2>
-          </ion-col>
-          <ion-col col-6>
-            <p>Status:&nbsp;&nbsp;
-            <ion-icon *ngIf='capsule.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
-            <ion-icon *ngIf='capsule.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-      <ion-item style='padding-left: 0px;'>
-        <ion-row>
-          <ion-col col-6>
-            <p>Number of crew:&nbsp;</p>
-            <h2>{{ capsule.crew_capacity + " member(s) "}}</h2>
-          </ion-col>
-          <ion-col col-6>
-            <p>Orbit duration:&nbsp;&nbsp;</p>
-            <h2>{{ capsule.orbit_duration_yr + " year(s) " }}</h2>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-      <ion-item style='padding-left: 0px;'>
-        <ion-row>
-          <ion-col col-12>
-            <h2>Informations:</h2>
-          </ion-col>
-        </ion-row>
-      </ion-item>
 
-      <ion-item style='padding-left: 0px;'>
-          <ion-row>
-              <ion-col col-6>
-                  <p>
-                      <b>Diameter:</b>
-                  </p>
-                  <ion-badge color="darkBlue">{{ capsule.diameter.meters + " meters - " + capsule.diameter.feet + " feet"}}</ion-badge>                  
-              </ion-col>
-              <ion-col col-6>
-                  <p>
-                      <b>Sidewall angle:</b>
-                  </p>
-                  <ion-badge color="darkBlue">{{ capsule.sidewall_angle_deg + " degree"}}</ion-badge>                  
-              </ion-col>
+        <!-- FIRT ITEM -->
+        <ion-item style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>Name:&nbsp;</p>
+                    <h2>{{ capsule.name }}</h2>
+                </ion-col>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>Status:&nbsp;&nbsp;
+                        <ion-icon *ngIf='capsule.active == false' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
+                        <ion-icon *ngIf='capsule.active == true' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
+                    </p>
+                </ion-col>
             </ion-row>
-          <ion-row>
-              <ion-col col-6>
-                  <p>
-                      <b>Height Trunk:</b>
-                  </p>
-                  <ion-badge color="darkBlue">{{ capsule.height_w_trunk.meters + " meters - " + capsule.height_w_trunk.feet + " feet"}}</ion-badge>                  
-              </ion-col>
-              <ion-col col-6>
-                  <p>
-                      <b>Type:</b>
-                      <ion-badge color="darkBlue">{{ capsule.type}}</ion-badge>                  
-                  </p>
-              </ion-col>
-          </ion-row>
-      </ion-item>
+        </ion-item>
+        <!-- END OF FIRST ITEM -->
 
-      <ion-item style='padding-left: 0px;'>
-        <ion-row>
-            <ion-col col-12>
-              <p>
-                <b>Launch Payload Mass:</b>
-              </p>
-              <ion-badge color="darkBlue">{{ capsule.launch_payload_mass.kg + " kg - " + capsule.launch_payload_mass.lb + " lb"}}</ion-badge>                  
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-12>
-              <p>
-                <b>Return Payload Mass:</b>
-              </p>
-              <ion-badge color="darkBlue">{{ capsule.return_payload_mass.kg + " kg - " + capsule.return_payload_mass.lb + " lb"}}</ion-badge>                  
-            </ion-col>
-        </ion-row>
-      </ion-item>
+        <!-- SECOND ITEM -->
+        <ion-item style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>Number of crew:&nbsp;</p>
+                    <h2>{{ capsule.crew_capacity + " member(s) "}}</h2>
+                </ion-col>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>Orbit duration:&nbsp;&nbsp;</p>
+                    <h2>{{ capsule.orbit_duration_yr + " year(s) " }}</h2>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <!-- END OF SECOND ITEM -->
 
-      <ion-item style='padding-left: 0px;'>
-          <ion-row>
-              <ion-col col-12>
-                <p>
-                  <b>Launch Payload Volume:</b>
-                </p>
-                <ion-badge color="darkBlue">{{ capsule.launch_payload_vol.cubic_meters + " m3 - " + capsule.launch_payload_vol.cubic_feet + " feet3"}}</ion-badge>                  
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col col-12>
-                <p>
-                  <b>Return Payload Volume:</b>
-                </p>
-                <ion-badge color="darkBlue">{{ capsule.return_payload_vol.cubic_meters + " m3 - " + capsule.return_payload_vol.cubic_feet + " feet3"}}</ion-badge>                  
-              </ion-col>
-          </ion-row>
-      </ion-item>   
-        
-      <ion-item *ngIf='capsule.heat_shield' style='padding-left: 0px;'>
-          <ion-row>
-              <ion-col col-12>
-                <B>
-                    <h2>Heat Shield Details:</h2>
-                </B>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-6>
-                <p>
-                    <b>Dev Partner:</b>
-                </p>
-                <h6>{{ capsule.heat_shield.dev_partner }}</h6>
-            </ion-col>
-            <ion-col col-6>
-                <p>
-                    <b>Material:</b>
-                </p>
-                <h6>{{ capsule.heat_shield.material }}</h6>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col col-6>
-                  <p>
-                      <b>Size:</b>
-                  </p>
-                  <h6>{{ capsule.heat_shield.size_meters + " meters"}}</h6>
-              </ion-col>
-              <ion-col col-6>
-                  <p>
-                      <b>Temperature:</b>
-                  </p>
-                  <h6>{{ capsule.heat_shield.temp_degrees + " degree" }}</h6>
-              </ion-col>
-          </ion-row>
-      </ion-item>
+        <!-- THIRD ITEM -->
+        <ion-item style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-12>
+                    <h2>Informations:</h2>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <!-- END OF THIRD ITEM -->
+
+        <!-- FOURTH ITEM -->
+        <ion-item style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Diameter:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.diameter.meters + " meters - " + capsule.diameter.feet + " feet"}}</ion-badge>
+                </ion-col>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Sidewall angle:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.sidewall_angle_deg + " degree"}}</ion-badge>
+                </ion-col>
+            </ion-row>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Height Trunk:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.height_w_trunk.meters + " meters - " + capsule.height_w_trunk.feet + " feet"}}</ion-badge>
+                </ion-col>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Type:</b>
+                        <ion-badge color="darkBlue">{{ capsule.type}}</ion-badge>
+                    </p>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <!-- END OF FOURTH ITEM -->
+
+        <!-- FIFTH ITEM -->
+        <ion-item style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-12>
+                    <p>
+                        <b>Launch Payload Mass:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.launch_payload_mass.kg + " kg - " + capsule.launch_payload_mass.lb + " lb"}}</ion-badge>
+                </ion-col>
+            </ion-row>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-12>
+                    <p>
+                        <b>Return Payload Mass:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.return_payload_mass.kg + " kg - " + capsule.return_payload_mass.lb + " lb"}}</ion-badge>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <!-- END OF FIFTH ITEM -->
+
+        <!-- SIXTH ITEM -->
+        <ion-item style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-12>
+                    <p>
+                        <b>Launch Payload Volume:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.launch_payload_vol.cubic_meters + " m3 - " + capsule.launch_payload_vol.cubic_feet + " feet3"}}</ion-badge>
+                </ion-col>
+            </ion-row>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-12>
+                    <p>
+                        <b>Return Payload Volume:</b>
+                    </p>
+                    <ion-badge color="darkBlue">{{ capsule.return_payload_vol.cubic_meters + " m3 - " + capsule.return_payload_vol.cubic_feet + " feet3"}}</ion-badge>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <!-- END OF SIXTH ITEM -->
+
+        <!-- SEVENTH ITEM -->
+        <ion-item *ngIf='capsule.heat_shield' style='padding-left: 0px;'>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-12>
+                    <B>
+                        <h2>Heat Shield Details:</h2>
+                    </B>
+                </ion-col>
+            </ion-row>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Dev Partner:</b>
+                    </p>
+                    <h6>{{ capsule.heat_shield.dev_partner }}</h6>
+                </ion-col>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Material:</b>
+                    </p>
+                    <h6>{{ capsule.heat_shield.material }}</h6>
+                </ion-col>
+            </ion-row>
+            <!-- Grid row -->
+            <ion-row>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Size:</b>
+                    </p>
+                    <h6>{{ capsule.heat_shield.size_meters + " meters"}}</h6>
+                </ion-col>
+                <!-- Grid column -->
+                <ion-col col-6>
+                    <p>
+                        <b>Temperature:</b>
+                    </p>
+                    <h6>{{ capsule.heat_shield.temp_degrees + " degree" }}</h6>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <!-- END OF SEVENTH ITEM -->
 
     </ion-grid>
 </ion-content>

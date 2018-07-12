@@ -20,14 +20,13 @@ export class LaunchpadPage {
 
   launchpad : Launchpad;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchpadPage');
     this.launchpad = this.navParams.data;
   }
 
+  // Allow to go to the rocket page
   goToRocketDetails(rocket : Rocket, img: String) {
     this.navCtrl.push(RocketPage, {rocket: rocket, img: img});
   }

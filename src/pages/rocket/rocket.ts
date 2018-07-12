@@ -19,16 +19,11 @@ export class RocketPage {
   rocket : Rocket;
   img : String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RocketPage');
     this.rocket = this.navParams.data.rocket;
     this.img = this.navParams.data.img;
-    console.log(this.rocket);
-    console.log(this.img);
-    
   }
 
 }
