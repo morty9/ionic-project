@@ -56,7 +56,7 @@
         <ion-col col-6>
           <!-- Grid row -->
           <ion-row>
-            <ion-icon name="pin" color="darkBlue"></ion-icon>
+            <ion-icon md="md-pin" color="darkBlue"></ion-icon>
             <h2 text-wrap>{{ launchpad.location.region }}</h2>
           </ion-row>
         </ion-col>
@@ -65,9 +65,9 @@
           <!-- Grid row -->
           <ion-row>
             <h2>Status:&nbsp;&nbsp;</h2>
-            <ion-icon *ngIf='launchpad.status == "retired"' name="close-circle" size="large" color="danger" style="float: right;"></ion-icon>
-            <ion-icon *ngIf='launchpad.status == "active"' name="checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
-            <ion-icon *ngIf='launchpad.status == "under construction"' name="construct" size="large" color="primary" style="float: right;"></ion-icon>
+            <ion-icon *ngIf='launchpad.status == "retired"' md="md-close-circle" size="large" color="danger" style="float: right;"></ion-icon>
+            <ion-icon *ngIf='launchpad.status == "active"' md="md-checkmark-circle" size="large" color="secondary" style="float: right;"></ion-icon>
+            <ion-icon *ngIf='launchpad.status == "under construction"' md="md-construct" size="large" color="primary" style="float: right;"></ion-icon>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -108,25 +108,25 @@
     <!-- SIXTH ITEM -->
     <ion-item *ngIf='launchpad.vehicles_launched'>
       <!-- Grid row -->
-        <ion-row>
-          <!-- Grid column -->
-            <ion-col col-12>
-              <h2>Vehicles Launched:</h2>
-            </ion-col>
-        </ion-row>
-        <!-- Grid row -->
-        <ion-row>
-            <!-- LIST OF ROCKETS -->
-            <ion-list *ngFor="let r of launchpad.vehicles_launched">
-                <ion-grid>
-                  <p>
-                    {{ r }}
-                  </p>
-                </ion-grid>
-            </ion-list>
-        </ion-row>
+      <ion-row>
+        <!-- Grid column -->
+        <ion-col col-12>
+          <h2>Vehicles Launched:</h2>
+        </ion-col>
+      </ion-row>
+      <!-- Grid row -->
+      <ion-row>
+        <!-- LIST OF ROCKETS -->
+        <ion-list *ngFor="let r of launchpad.vehicles_launched">
+          <ion-grid>
+            <p>
+              {{ r }}
+            </p>
+          </ion-grid>
+        </ion-list>
+      </ion-row>
     </ion-item>
     <!-- END OF SIXTH ITEM -->
-    
+
   </ion-grid>
 </ion-content>

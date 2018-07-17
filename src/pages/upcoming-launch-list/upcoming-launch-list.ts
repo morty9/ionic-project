@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Launch } from '../../app/Models/Launch';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { LaunchPage } from '../launch/launch';
@@ -20,7 +20,7 @@ export class UpcomingLaunchListPage {
 
   launches : Launch[];
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private spacexapi: SpacexApiProvider) {
+  constructor(private navCtrl: NavController, private spacexapi: SpacexApiProvider) {
     
     // Get upcoming launch list data from api
     this.spacexapi.getUpcomingLaunches().subscribe(data => {

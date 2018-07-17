@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CompanyHistory } from '../../app/Models/CompanyHistory';
 import { CompanyInfo } from '../../app/Models/CompanyInfo';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
-import { TruncateModule } from '@yellowspot/ng-truncate';
 
 /**
  * Generated class for the CompanyPage page.

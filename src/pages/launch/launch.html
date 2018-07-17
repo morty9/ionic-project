@@ -57,9 +57,9 @@
           </ion-col>
           <!-- Grid column -->
           <ion-col col-4 text-wrap>
-            <ion-badge class="badge" color="primary">{{payload.orbit}}</ion-badge>
-            <ion-badge class="badge" color="primary">{{payload.payload_type}}</ion-badge>
-            <ion-badge class="badge" [color]="launch.launch_success ? 'secondary' : 'danger'">{{launch.launch_success ? 'Success' : 'Fail'}}</ion-badge>
+            <ion-badge class="badge infos" color="primary">{{payload.orbit}}</ion-badge>
+            <ion-badge class="badge infos" color="primary">{{payload.payload_type}}</ion-badge>
+            <ion-badge class="badge infos" [color]="launch.launch_success ? 'secondary' : 'danger'">{{launch.launch_success ? 'Success' : 'Fail'}}</ion-badge>
           </ion-col>
         </ion-row>
       </ion-row>
@@ -133,7 +133,7 @@
       <ion-row>
         <!-- Grid column -->
         <ion-col col-2 class="icons">
-          <ion-icon name="logo-youtube" style='margin-right: auto; margin-left: auto;'></ion-icon>
+          <ion-icon md="logo-youtube"></ion-icon>
         </ion-col>
         <!-- Grid column -->
         <ion-col col-10 class="links">
@@ -146,7 +146,7 @@
       <ion-row>
         <!-- Grid column -->
         <ion-col col-2 class="icons">
-          <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+          <ion-icon md="md-book"></ion-icon>
         </ion-col>
         <!-- Grid column -->
         <ion-col col-10 class="links">
@@ -159,7 +159,7 @@
       <ion-row>
         <!-- Grid column -->
         <ion-col col-2 class="icons">
-          <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+          <ion-icon md="md-book"></ion-icon>
         </ion-col>
         <!-- Grid column -->
         <ion-col col-10 class="links">

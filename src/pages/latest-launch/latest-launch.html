@@ -18,7 +18,7 @@
 </ion-header>
 
 <!-- CONTENT -->
-<ion-content padding *ngIf="launch">
+<ion-content *ngIf="launch" padding>
 
   <!-- FIRST ITEM -->
   <ion-item *ngFor="let payload of launch.rocket.second_stage.payloads" style="padding-left: 0px;">
@@ -99,7 +99,7 @@
     <ion-row>
       <!-- Grid column -->
       <ion-col col-2 class="icons">
-        <ion-icon name="logo-youtube" style='margin-right: auto; margin-left: auto;'></ion-icon>
+          <ion-icon md="logo-youtube"></ion-icon>
       </ion-col>
       <!-- Grid column -->
       <ion-col col-10 class="links">
@@ -112,7 +112,7 @@
     <ion-row>
       <!-- Grid column -->
       <ion-col col-2 class="icons">
-        <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+          <ion-icon md="md-book"></ion-icon>
       </ion-col>
       <!-- Grid column -->
       <ion-col col-10 class="links">
@@ -125,7 +125,7 @@
     <ion-row>
       <!-- Grid column -->
       <ion-col col-2 class="icons">
-        <ion-icon name="book" style='margin-right: auto; margin-left: auto;'></ion-icon>
+          <ion-icon md="md-book"></ion-icon>
       </ion-col>
       <!-- Grid column -->
       <ion-col col-10 class="links">
